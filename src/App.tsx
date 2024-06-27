@@ -1,38 +1,15 @@
 import React, { useState, ChangeEvent } from "react";
+import Counter from "./components/Counter";
+import SavedState from "./components/SavedState";
 
-function App() {
-  const [inputValue, setInputValue] = useState<string>("");
-  const [savedValue, setSavedValue] = useState<string>("");
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleButtonClick = () => {
-    setSavedValue(inputValue);
-  };
-
+const App: React.FC = () => {
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">Save Input to State</h1>
-
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        className="border p-2 mb-4"
-        placeholder="Enter something ..."
-      />
-
-      <button
-        onClick={handleButtonClick}
-        className="bg-red-500 text-white px-4 py-2 rounded"
-      >
-        Save
-      </button>
-      <p className="mt-4">Saved Value: {savedValue} </p>
+    <div className="App p-4">
+      <h1>Save Data Example</h1>
+      <SavedState />
+      <Counter />
     </div>
   );
-}
+};
 
 export default App;
